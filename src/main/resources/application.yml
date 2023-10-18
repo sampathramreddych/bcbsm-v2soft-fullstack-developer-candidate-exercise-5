@@ -1,0 +1,32 @@
+server:
+  servlet:
+    context-path: /api
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: local
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+  mail:
+    host: smtp.gmail.com
+    username: sampath.bigdata@gmail.com
+    port: '25'
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+        smtp:
+          writetimeout: '5000'
+          starttls:
+            enable: 'true'
+          timeout: '5000'
+          auth: 'true'
+          connectiontimeout: '5000'
+        debug: 'true'
+    password: '***********'
+

@@ -1,0 +1,29 @@
+<div class="card my-5">
+  <div class="form-group">
+    <input type="search" class="form-control" [(ngModel)]="filter" placeholder="Filter by file name or Recipient Email">
+  </div>
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" sortable="fromEmailId" (sort)="onSort($event)">From Email</th>
+            <th scope="col" sortable="recipientEmailId" (sort)="onSort($event)">Recipient Email</th>
+            <th scope="col" sortable="fileName" (sort)="onSort($event)">Attachment File Name</th>
+            <th scope="col" sortable="uploadUser" (sort)="onSort($event)">Uploaded By</th>
+            <th scope="col" sortable="uploadedDate" (sort)="onSort($event)">Uploaded Date</th>
+            <th scope="col" sortable="objectId">Download</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emailDetail of emailDetails | fileName:filter">
+            <td>{{ emailDetail.fromEmailId }}</td>
+            <td>{{ emailDetail.recipientEmailId }}</td>
+            <td>{{ emailDetail.fileName }}</td>
+            <td>{{ emailDetail.uploadUser }}</td>
+            <td>{{ emailDetail.uploadedDate }}</td>
+            <td><button (click)="download($event)" class="btn btn-info" id="{{ emailDetail.objectId }}"></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
