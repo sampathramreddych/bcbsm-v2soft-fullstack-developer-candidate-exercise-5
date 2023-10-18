@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EmailDetailsFormComponent {
   emailDetails: EmailDetails;
-  filesToUpload!: File;
+  fileToUpload!: File;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,12 +21,12 @@ export class EmailDetailsFormComponent {
 
   selectFile(event: any) {
     console.log('EmailDetailsFormComponent.selectFile');
-    this.filesToUpload = event.target.files.item(0);
+    this.fileToUpload = event.target.files.item(0);
   }
 
   uploadFile() {
     console.log('EmailDetailsFormComponent.onSubmit');
-    this.emailDetailsService.sendEmail(this.filesToUpload).subscribe(result => this.gotoEmailDetailsList());
+    this.emailDetailsService.sendEmail(this.fileToUpload).subscribe(result => this.gotoEmailDetailsList());
   }
 
   gotoEmailDetailsList() {

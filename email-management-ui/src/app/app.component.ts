@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title: string;
-  isAuthenticated: boolean = false;
+  isUserAuthenticated: boolean = false;
   userObj:any;
 
   constructor(private http: HttpClient) {
@@ -23,7 +23,7 @@ export class AppComponent {
     this.http.get('api/files').subscribe(
       data => {
         this.userObj = data;
-        this.isAuthenticated = true;
+        this.isUserAuthenticated = true;
         console.info(this.userObj);
       },
       error => {
