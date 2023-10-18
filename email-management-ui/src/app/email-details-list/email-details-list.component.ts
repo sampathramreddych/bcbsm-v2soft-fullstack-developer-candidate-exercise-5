@@ -31,14 +31,13 @@ export class EmailDetailsListComponent {
   }
 
   download(event: any) {
-    alert("id is"+event.target.id);
-    console.log("id is"+event.target.id); 
+    console.log("id is"+event.target.id);
     this.emailDetailsService.downloadAttachment(event.target.id);
 }
 
 
 
-  
+
 
   @ViewChildren(SortableHeaderDirective)
   headers!: QueryList<SortableHeaderDirective>;
@@ -51,7 +50,7 @@ export class EmailDetailsListComponent {
       }
     });
 
-    // sorting countries
+
     if (direction === '' || column === '') {
       this.emailDetails = this.data;
     } else {

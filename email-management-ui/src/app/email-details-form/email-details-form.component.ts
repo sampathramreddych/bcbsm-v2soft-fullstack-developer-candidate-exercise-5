@@ -13,21 +13,19 @@ export class EmailDetailsFormComponent {
   filesToUpload!: File;
 
   constructor(
-    private route: ActivatedRoute, 
-      private router: Router, 
+    private route: ActivatedRoute,
+      private router: Router,
         private emailDetailsService: EmailDetailsService) {
     this.emailDetails = new EmailDetails();
   }
 
   selectFile(event: any) {
     console.log('EmailDetailsFormComponent.selectFile');
-    alert('EmailDetailsFormComponent.selectFile')
     this.filesToUpload = event.target.files.item(0);
   }
 
   uploadFile() {
     console.log('EmailDetailsFormComponent.onSubmit');
-    alert('EmailDetailsFormComponent.onSubmit');
     this.emailDetailsService.sendEmail(this.filesToUpload).subscribe(result => this.gotoEmailDetailsList());
   }
 

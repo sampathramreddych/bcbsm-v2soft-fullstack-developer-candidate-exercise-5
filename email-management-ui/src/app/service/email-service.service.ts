@@ -6,14 +6,12 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class EmailDetailsService {
 
-
-
   constructor(private http: HttpClient) {
 
   }
 
   public findAll(): Observable<EmailDetails[]> {
-   
+
     return this.http.get<EmailDetails[]>('/api/files/list');
   }
 
@@ -24,12 +22,10 @@ export class EmailDetailsService {
 
     this.http.get<ArrayBuffer>('api/files/download?id='+id, {responseType: 'blob' as 'json'}).subscribe(
       data => {
-        console.info('data is'+data);
         const blob = new Blob([data as BlobPart], { type: 'application/octet-stream' });
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        alert('url is'+url);
         a.click();
       },
       error => {
