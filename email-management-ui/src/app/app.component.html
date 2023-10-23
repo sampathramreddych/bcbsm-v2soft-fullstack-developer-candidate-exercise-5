@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngIf="!isAuthenticated">
+  <div *ngIf="!isUserAuthenticated">
     <button (click)="login()">Login</button>
   </div>
   <div *ngIf="isUserAuthenticated">
